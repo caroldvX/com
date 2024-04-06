@@ -1,0 +1,16 @@
+/* styles.css */
+
+body {
+    font-family: 'Rawline', sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
+#aside-signin, #main-signin {
+    flex: 1;
+}
+
+/* Adicione mais estilizações conforme necessário */
